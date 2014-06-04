@@ -1,0 +1,104 @@
+body {
+    font-family: "Microsoft Yahei"
+ height: 100%;
+}
+
+.container-fluid {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.content {
+   
+    height: 500px;
+    width: 819px;
+    border-radius: 5px 0 0 0;
+}
+
+.footer {
+    height: 15px;;
+    padding: 20px;
+    background: #F4F4F4;
+    z-index: 10;
+    position: relative;
+    vertical-align: bottom: 0;
+    font-size: 12px;
+    color: #999;
+    
+}
+.footer-span{
+    height: 10px;;
+}
+
+.avatar {
+    height: 60px;
+    width: 100px;
+    position: relative;
+    border-radius: 5px 5px 0 0;
+    background: #333746;
+    top: -60px;
+    left: 20px;
+}
+
+.page {
+    margin: 0 auto;
+    max-width: 800px;
+    height: 100%;
+}
+
+.logo {
+    margin-bottom: 0px;
+	max-width: 1024px;
+    box-shadow: 0px 0px 10px #AAA
+}
+
+.wrapper {	
+   	padding: 20px 20px 20px 20px;
+    margin: auto;
+    height: auto;
+    background: #FFF;
+    width: 800px;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.wrapperbak {
+    border-radius: 10px;
+    box-shadow: 0px 2px 15px #666;
+}
+
+.form-btn {
+    background-color: #79C3D4 !important;
+}
+
+.error {
+    color: #B94A48;
+}
+
+.control-labelx {
+    width: 90px !important;
+}
+
+.controlsx {
+    margin-left: 100px !important;;
+}
+
+
+.input-xsmall {
+    width: 50px;
+    text-align: center;
+}
+
+.title {
+    font-size: 36px;
+    line-height: 100px;
+    font-family: "KaiTi";
+    font-weight: 38;
+}
+
+.center {
+	width: auto;
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+}

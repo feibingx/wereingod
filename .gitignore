@@ -3,3 +3,13 @@ pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.next
 release.properties
+USER_HOME_IS_UNDEFINED
+.project
+.classpath
+.settings
+log
+out
+debug
+.idea
+*.iml
+*.rar
