@@ -1,4 +1,4 @@
-package com.zhiweiwang.datong.model;
+package com.zhiweiwang.gow.model;
 
 public class Player {
 	protected String userid;
@@ -8,7 +8,7 @@ public class Player {
 	protected String isAlive;
 	protected String acted;
 	protected String lover;
-
+	protected String pstatus;
 	public String getUserid() {
 		return userid;
 	}
@@ -63,6 +63,14 @@ public class Player {
 
 	public void setLover(String lover) {
 		this.lover = lover;
+	}
+
+	public String getPstatus() {
+		return pstatus;
+	}
+
+	public void setPstatus(String pstatus) {
+		this.pstatus = pstatus;
 	}
 
 }

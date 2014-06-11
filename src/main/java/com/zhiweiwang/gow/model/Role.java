@@ -1,4 +1,4 @@
-package com.zhiweiwang.datong.model;
+package com.zhiweiwang.gow.model;
 
 public enum Role {
 	普通村民	,
@@ -11,6 +11,7 @@ public enum Role {
 	守卫	,
 	白痴	,
 	替罪羊,
-	长老	
+	长老, 
+	未分配, 空闲
 
 }

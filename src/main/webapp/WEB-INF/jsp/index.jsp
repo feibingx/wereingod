@@ -29,7 +29,7 @@
 		<table id="tblTestingdata" width="100%">
 			<tr>
 				<td style="text-align: center;" colspan="5"><a
-					class="btn pull-right" onclick="addhonor()">点此添加</a></td>
+					class="btn pull-right" onclick="addhonor();">点此添加</a></td>
 			</tr>
 			<tr>
 				<td width="75px;">userid</td>
@@ -47,7 +47,7 @@
 				</td>
 				<td><input id="command0" name="command0" type="text"
 					class="input"></td>
-				<td><input id="btn0" name="btn0" type="button" class="button" value="go"></td>
+				<td><input id="btn0" name="btn0" type="button" class="button" value="go" onclick="postAction(0);"></td>
 				<td><div id="feedback0"></div></td>
 			</tr>
 		</table>
@@ -76,13 +76,32 @@
 
 		});
 		var ccnt=1;
-		function addhonor(){}
-		function addhonorxx() {
-			$("#tblTestingdata")
-					.append(
-							"");
+		//function addhonor(){}
+		function addhonor() {
+			$("#tblTestingdata").append(
+							"<tr><td><input id=\"userid"+ccnt+"\" name=\"userid"+ccnt+"\" value=\"userid"+ccnt+"\" type=\"text\" class=\"input\" /></td>"+
+"<td><select class=\"role\"></select>"+
+"</td><td><input id=\"command"+ccnt+"\" name=\"command"+ccnt+"\" type=\"text\" class=\"input\"></td>"+
+"<td><input id=\"btn"+ccnt+"\" name=\"btn"+ccnt+"\" type=\"button\" class=\"button\" value=\"go\" onclick=\"postAction("+ccnt+");\"></td>"+
+"<td><div id=\"feedback"+ccnt+"\"></div></td></tr>");
 			ccnt++;
 		}
+
+		function postAction(pnumber) {
+			var _datas = "userid="+$("#userid"+pnumber).val()+"&command="+$("#command"+pnumber).val();
+			$.ajax({
+				type : "GET",
+				url : "action",
+				data : _datas,
+				dataType : "text",
+				success : function(msg) {
+					var json = eval('(' + msg + ')');
+					$("#feedback"+pnumber).text(json.text);
+				}
+			});
+		}
+ 
+
 	</script>
 </body>
 </html>

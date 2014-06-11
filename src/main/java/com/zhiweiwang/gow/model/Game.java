@@ -1,4 +1,4 @@
-package com.zhiweiwang.datong.model;
+package com.zhiweiwang.gow.model;
 
 public class Game {
 	protected int id;

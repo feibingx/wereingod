@@ -4,14 +4,14 @@
 	<property name="USER_HOME" value="/home/williamw/log" />
 	<property name="LOG_FILE_NAME" value="godinwere" />
 	<property name="LOG_FILE_NAME_MSG" value="apply" />
-	<property name="LEVEL" value="info" />
+	<property name="LEVEL" value="debug" />
 	<property name="logFileNamePattern" value="${LOG_FILE_NAME}_%d{yyyy-MM-dd}" />
 	<property name="logFileNamePattern2" value="${LOG_FILE_NAME}_%d{yyyy-MM-dd}_%i" />
 	<property name="fileLayoutPattern"
 		value="%d{yyyyMMdd:HH:mm:ss.SSS} [%logger{25}][%thread]%-5level  %msg%n" />
 	<property name="consoleLayoutPattern"
-		value="%d{yyyyMMdd:HH:mm:ss.SSS}[%logger{25}][%thread]%-5level  %msg%n" />
-	<contextName>pchApp</contextName>
+		value="%d%-5level{HH:mm:ss.SSS}[%logger{25}][%L] %msg%n" />
+	<contextName>godinwere</contextName>
 	<timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss" />
 	<timestamp key="byDate" datePattern="yyyyMMdd" />
 
