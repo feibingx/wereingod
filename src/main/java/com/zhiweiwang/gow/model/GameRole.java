@@ -1,17 +1,17 @@
 package com.zhiweiwang.gow.model;
 
 public class GameRole {
-	String gameid;
+	int gameid;
 	String rolename;
 	int rolecount;
 	int rolecountreal;
 	String rstatus;
 
-	public String getGameid() {
+	public int getGameid() {
 		return gameid;
 	}
 
-	public void setGameid(String gameid) {
+	public void setGameid(int gameid) {
 		this.gameid = gameid;
 	}
 

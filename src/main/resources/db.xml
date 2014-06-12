@@ -25,6 +25,11 @@
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 	
+	<bean id="gameRoleMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.zhiweiwang.gow.mapper.GameRoleMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	
 	<bean id="roleActionMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.zhiweiwang.gow.mapper.RoleActionMapper" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />

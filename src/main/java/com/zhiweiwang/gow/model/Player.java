@@ -2,7 +2,7 @@ package com.zhiweiwang.gow.model;
 
 public class Player {
 	protected String userid;
-	protected String gameid;
+	protected int gameid;
 	protected String rolename;
 	protected String cardnumber;
 	protected String isAlive;
@@ -17,11 +17,11 @@ public class Player {
 		this.userid = userid;
 	}
 
-	public String getGameid() {
+	public int getGameid() {
 		return gameid;
 	}
 
-	public void setGameid(String gameid) {
+	public void setGameid(int gameid) {
 		this.gameid = gameid;
 	}
 

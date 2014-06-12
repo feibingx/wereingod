@@ -14,4 +14,7 @@ public enum Role {
 	长老, 
 	未分配, 空闲
 
+	;
+	
+ 
 }

@@ -36,7 +36,7 @@ public class GameEngine {
 		player.setUserid(userid);
 		player.setRolename(Role.未分配.toString());
 		player.setPstatus(PStatus.空闲.toString());
-		player.setGameid("0");
+		player.setGameid(0);
 		return player;
 	}
 

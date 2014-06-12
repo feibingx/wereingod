@@ -17,7 +17,7 @@ rolenumber int
 
 create table gamereal(
 id int not null auto_increment not null primary key,
-gameid varchar(20) not null,
+gameid int not null,
 totalplayer int not null,
 gstatus varchar(20),
 daycount int,
@@ -26,7 +26,7 @@ lastchanged timestamp
 
 create table gamerole(
 id int not null auto_increment not null primary key,
-gameid varchar(20) not null,
+gameid int not null,
 rolename varchar(12),
 rolecount int,
 rolecountreal int,
@@ -48,6 +48,7 @@ lover varchar(2)
 create table roleaction(
 id int not null auto_increment primary key,
 gstatus varchar(20),
+pstatus varchar(20),
 rolename varchar(12),
 command varchar(60),
 beanid varchar(60),
@@ -57,7 +58,8 @@ feedback text
 );
 
 insert into roleaction(gstatus, rolename, command, beanid, feedback) values( 'NULL', '未分配', 'openroom', 'GameOpen', '开房成功，输入人数获取房间号码'); 
-insert into roleaction(gstatus, rolename, command, beanid, feedback) values( 'NULL', '未分配', 'number', 'GameCounting', '开房成功，房间人数为##人，房间号码为##，请小伙伴们输入房间号码加入房间');
+insert into roleaction(gstatus, rolename, command, beanid, feedback) values( 'NULL', '房主', 'number', 'GameCounting', '开房成功，房间人数为##人，房间号码为##，请小伙伴们输入房间号码加入房间');
+insert into roleaction(gstatus, rolename, command, beanid, feedback) values( 'NULL', '未分配', 'number', 'GameJoin', '开房成功，房间人数为##人，房间号码为##，请小伙伴们输入房间号码加入房间');
 
 create table vote(
 ID int not null auto_increment primary key,

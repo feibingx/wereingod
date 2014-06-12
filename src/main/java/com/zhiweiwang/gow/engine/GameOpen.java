@@ -16,7 +16,7 @@ public class GameOpen implements GameRoleAction {
 	PlayerMapper playerMapper;
 	
 	public ArrayList<String> action(Player player, String gstatus, String command) {		
-		playerMapper.updatePlayerStatus(player.getUserid(), PStatus.房主.toString());		
+		playerMapper.updatePlayerStatus(player.getUserid(), PStatus.房主.toString());	
 		return null;
 	}
 
