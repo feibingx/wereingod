@@ -14,10 +14,11 @@ public interface PlayerMapper {
 	public Player get(@Param("userid") String userid);
 
 	@Insert("Insert into player(userid, rolename, pstatus) values(#{userid},#{rolename},#{pstatus})")
-	public void newPlayer(@Param("userid") String userid,
-			@Param("rolename") String rolename,
-			@Param("pstatus") String pstatus);
+	public void newPlayer(@Param("userid") String userid, @Param("rolename") String rolename, @Param("pstatus") String pstatus);
 
 	@Update("update player set pstatus=#{pstatus} where userid=#{userid}")
-	public int updatePlayerStatus(@Param("userid")String userid,@Param("pstatus") String pstatus);
+	public int updatePlayerStatus(@Param("userid") String userid, @Param("pstatus") String pstatus);
+
+	@Update("update player set rolename=#{rolename} where userid=#{userid}")
+	public void updatePlayerRole(@Param("userid")String userid, @Param("rolename")String rolename);
 }

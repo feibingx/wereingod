@@ -6,10 +6,9 @@ import org.apache.ibatis.annotations.Select;
 import com.zhiweiwang.gow.model.RoleAction;
 
 public interface RoleActionMapper {
-	@Select("Select * from roleaction where rolename=#{rolename} and gstatus=#{gstatus} and pstatus=#{pstatus} and command=#{command}")
-	RoleAction getRoleAction(@Param("rolename") String rolename,
-			@Param("pstatus") String pstatus, @Param("gstatus") String gstatus,
-			String command);
+	@Select("Select * from roleaction where rolename=#{rolename} and gstatus=#{gstatus} and command=#{command}")
+	RoleAction getRoleAction(@Param("rolename") String rolename, @Param("gstatus") String gstatus,
+			@Param("command")String command);
 
 	// RoleAction getRoleAction(@Param("rolename") String rolename,
 	// @Param("gstatus") String gstatus,@Param("command") String command);

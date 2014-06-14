@@ -34,12 +34,12 @@ public class GameRoleRouter implements ApplicationContextAware {
 
 		String command = transforCommand(c);
 		log.debug("transfor command: {}", command);
-		RoleAction roleAction = roleActionMapper.getRoleAction(player.getRolename(), player.getPstatus(), gstatus, command);
+		RoleAction roleAction = roleActionMapper.getRoleAction(player.getRolename(), gstatus, command);
 		if (roleAction == null) {
 			return "not valid command";
 		}
 		GameRoleAction node = (GameRoleAction) appContext.getBean(roleAction.getBeanId());
-		String text = fixString(roleAction.getFeedback(), node.action(player, gstatus, command));
+		String text = fixString(roleAction.getFeedback(), node.action(player, gstatus, c));
 
 		return text;
 		// ender swapper 

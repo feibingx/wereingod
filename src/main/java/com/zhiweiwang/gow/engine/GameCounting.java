@@ -41,21 +41,24 @@ public class GameCounting implements GameRoleAction {
 		int gameid = 0;
 
 		try {
-			gameid = gameRealMapper.getMaxGameid();
+			gameid = gameRealMapper.getMaxGameid() + number;
 		} catch (Exception e) {
 			gameid = 100;
 		}
 
 		gameRealMapper.newGameOpen(gameid, number, gstatus, 0);
 
+		log.debug("new game opened {}", gameid);
+		
 		List<GameTemplate> template = gameTemplateMapper.getTemplate(number);
 
 		rolesHandler.addGameRoles(gameid, template);
 
 		
 		ArrayList<String> returns=new ArrayList<String>();
-		returns.add(""+gameid);
+
 		returns.add(command);
+		returns.add(""+gameid);
 		return returns;
 	}
 

@@ -16,7 +16,8 @@ public interface GameRealMapper {
 	public int getMaxGameid();
 
 	@Insert("insert into gamereal(gameid, totalplayer, gstatus, daycount, lastchanged) values(#{gameid},#{totalplayer},#{gstatus},#{daycount},now())")
-	public void newGameOpen(@Param("gameid")int gameid, int totalplayer, String gstatus, int daycount);
+	public void newGameOpen(@Param("gameid") int gameid, @Param("totalplayer") int totalplayer, @Param("gstatus") String gstatus,
+			@Param("daycount") int daycount);
 
 	// @Insert("")
 }

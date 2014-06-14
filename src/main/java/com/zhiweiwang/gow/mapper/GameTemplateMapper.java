@@ -12,7 +12,7 @@ public interface GameTemplateMapper {
 	@Select("select confvalue from sysconf where confname=#{confname}")
 	public String get(@Param("confname") String confname);
 
-	@Select("select totalnumber, rolename, rolenumber from gametemplate where totolnumber=#{number}")
+	@Select("select totalplayer, rolename, rolenumber from gametemplate where totalplayer=#{number}")
 	public List<GameTemplate> getTemplate(@Param("number")int number);
 	
 }

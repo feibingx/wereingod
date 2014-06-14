@@ -7,6 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,6 +21,8 @@ import com.zhiweiwang.gow.model.Role;
 public class GameRoleAssembleHandler {
 
 	protected static Map<Integer, List<Role>> assemblerList = new HashMap<Integer, List<Role>>();
+	
+	Logger log = LoggerFactory.getLogger(GameRoleAssembleHandler.class);
 	
 	@Autowired
 	GameRoleMapper gameRoleMapper;
@@ -34,6 +38,9 @@ public class GameRoleAssembleHandler {
 		}
 		
 		Collections.shuffle(list);
+		
+		log.debug("Game:"+gameid+" suffled list: ",list.toArray());
+		
 		assemblerList.put(gameid, list);
 		
 	}

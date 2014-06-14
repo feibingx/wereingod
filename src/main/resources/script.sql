@@ -57,10 +57,6 @@ nextcommand varchar(60),
 feedback text
 );
 
-insert into roleaction(gstatus, rolename, command, beanid, feedback) values( 'NULL', '未分配', 'openroom', 'GameOpen', '开房成功，输入人数获取房间号码'); 
-insert into roleaction(gstatus, rolename, command, beanid, feedback) values( 'NULL', '房主', 'number', 'GameCounting', '开房成功，房间人数为##人，房间号码为##，请小伙伴们输入房间号码加入房间');
-insert into roleaction(gstatus, rolename, command, beanid, feedback) values( 'NULL', '未分配', 'number', 'GameJoin', '开房成功，房间人数为##人，房间号码为##，请小伙伴们输入房间号码加入房间');
-
 create table vote(
 ID int not null auto_increment primary key,
 userid varchar(32) not null,
