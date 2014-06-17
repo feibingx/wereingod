@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +21,7 @@ import com.zhiweiwang.gow.model.Role;
 @Component
 public class GameRoleAssembleHandler {
 
-	protected static Map<Integer, List<Role>> assemblerList = new HashMap<Integer, List<Role>>();
+	protected static Map<Integer, Queue<Role>> assemblerList = new HashMap<Integer, Queue<Role>>();
 	
 	Logger log = LoggerFactory.getLogger(GameRoleAssembleHandler.class);
 	
@@ -43,6 +44,12 @@ public class GameRoleAssembleHandler {
 		
 		assemblerList.put(gameid, list);
 		
+	}
+
+	public synchronized Role getNextRole(int gameid) {
+		
+		Queue<Role> roleList = assemblerList.get(gameid);
+		return roleList.poll();
 	}
 
  

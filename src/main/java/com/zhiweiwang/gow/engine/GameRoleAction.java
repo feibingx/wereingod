@@ -2,10 +2,11 @@ package com.zhiweiwang.gow.engine;
 
 import java.util.ArrayList; 
 
+import com.zhiweiwang.gow.exception.GameStatusException;
 import com.zhiweiwang.gow.model.Player;
 
 public interface GameRoleAction {
 
-	public ArrayList<String> action(Player player, String gstatus, String command);
+	public ArrayList<String> action(Player player, String gstatus, String command) throws GameStatusException;
 	
 }

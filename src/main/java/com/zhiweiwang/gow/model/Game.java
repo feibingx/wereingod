@@ -6,7 +6,7 @@ public class Game {
 	protected String rolename;
 	protected int rolecount;
 	protected int rolecountreal;
-	protected String status;
+	protected String gstatus;
 	protected int daycount;
 
 	public int getId() {
@@ -49,12 +49,14 @@ public class Game {
 		this.rolecountreal = rolecountreal;
 	}
 
-	public String getStatus() {
-		return status;
+ 
+
+	public String getGstatus() {
+		return gstatus;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setGstatus(String gstatus) {
+		this.gstatus = gstatus;
 	}
 
 	public int getDaycount() {

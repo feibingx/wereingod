@@ -27,7 +27,6 @@ public class GameEngine {
 		if(gstatus == null)
 			gstatus = "NULL";
 		return game.handle(player, gstatus, command);
-		
 	}
 
 	public Player newPlayer(String userid) {

@@ -1,10 +1,12 @@
+use gow;
+
 drop table if exists gametemplate;
 drop table if exists gamereal;
 drop table if exists gamerole;
 drop table if exists player;
 drop table if exists roleaction;
 drop table if exists vote;
-drop table if exists werewalfkill;
+drop table if exists werewolfkill;
 drop table if exists constants;
 drop table if exists journal;
 
@@ -36,7 +38,7 @@ lastchanged timestamp
 
 create table player(
 userid varchar(32) not null primary key,
-gameid varchar(20),
+gameid int,
 rolename varchar(12),
 cardnumber varchar(2),
 isAlive varchar(12),
@@ -60,15 +62,15 @@ feedback text
 create table vote(
 ID int not null auto_increment primary key,
 userid varchar(32) not null,
-gameid varchar(20),
+gameid int,
 daycount int,
 votenumber int
 );
 
-create table werewalfkill(
+create table werewolfkill(
 ID int not null auto_increment primary key,
 userid varchar(32) not null,
-gameid varchar(20),
+gameid int,
 daycount int,
 votenumber int
 );

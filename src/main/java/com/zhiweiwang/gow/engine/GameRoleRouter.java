@@ -1,6 +1,7 @@
 package com.zhiweiwang.gow.engine;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -11,6 +12,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
+import com.zhiweiwang.gow.exception.GameStatusException;
 import com.zhiweiwang.gow.mapper.RoleActionMapper;
 import com.zhiweiwang.gow.model.Player;
 import com.zhiweiwang.gow.model.RoleAction;
@@ -34,15 +36,30 @@ public class GameRoleRouter implements ApplicationContextAware {
 
 		String command = transforCommand(c);
 		log.debug("transfor command: {}", command);
-		RoleAction roleAction = roleActionMapper.getRoleAction(player.getRolename(), gstatus, command);
+		RoleAction roleAction = roleActionMapper.getRoleAction(player.getRolename(), gstatus,command);
 		if (roleAction == null) {
-			return "not valid command";
+			return help(player, gstatus);
 		}
 		GameRoleAction node = (GameRoleAction) appContext.getBean(roleAction.getBeanId());
-		String text = fixString(roleAction.getFeedback(), node.action(player, gstatus, c));
+		String text;
+		try {
+			text = fixString(roleAction.getFeedback(), node.action(player, gstatus, c));
+		} catch (GameStatusException e) {
+			text = e.getFeedbackText();
+		}
 
+		//gameStatusRunner(text);
 		return text;
 		// ender swapper 
+	}
+
+	private String help(Player player, String gstatus) {
+		List<RoleAction> roleAction = roleActionMapper.getRoleActionHelp(player.getRolename(), gstatus);
+		String string = "命令不合法。用户<"+player.getUserid()+">当前状态是："+player.getRolename()+" 可以使用的命令有：";
+		for(RoleAction ra:roleAction){
+			string +=ra.getCommandtext()+"/";
+		}
+		return string;
 	}
 
 	private String fixString(String feedback, ArrayList<String> values) {
@@ -56,7 +73,7 @@ public class GameRoleRouter implements ApplicationContextAware {
 			text.append(strings[i]);
 			text.append(values.get(i));
 		}
-		for (; i < strings.length - 1; i++)
+		for (; i < strings.length ; i++)
 			text.append(strings[i]);
 		return text.toString();
 	}

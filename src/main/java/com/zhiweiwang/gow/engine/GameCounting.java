@@ -13,8 +13,11 @@ import com.zhiweiwang.gow.engine.assemble.GameRoleAssembleHandler;
 import com.zhiweiwang.gow.mapper.GameRealMapper;
 import com.zhiweiwang.gow.mapper.GameTemplateMapper;
 import com.zhiweiwang.gow.mapper.PlayerMapper;
+import com.zhiweiwang.gow.model.GStatus;
 import com.zhiweiwang.gow.model.GameTemplate;
+import com.zhiweiwang.gow.model.PStatus;
 import com.zhiweiwang.gow.model.Player;
+import com.zhiweiwang.gow.model.Role;
 
 @Component("GameCounting")
 public class GameCounting implements GameRoleAction {
@@ -46,7 +49,7 @@ public class GameCounting implements GameRoleAction {
 			gameid = 100;
 		}
 
-		gameRealMapper.newGameOpen(gameid, number, gstatus, 0);
+		gameRealMapper.newGameOpen(gameid, number, GStatus.准备开始.toString(), 0);
 
 		log.debug("new game opened {}", gameid);
 		
@@ -54,11 +57,13 @@ public class GameCounting implements GameRoleAction {
 
 		rolesHandler.addGameRoles(gameid, template);
 
+		playerMapper.updatePlayerInGame(player.getUserid(), ""+gameid, PStatus.入房成功.toString());
 		
 		ArrayList<String> returns=new ArrayList<String>();
 
 		returns.add(command);
 		returns.add(""+gameid);
+		returns.add(command);
 		return returns;
 	}
 
