@@ -27,7 +27,11 @@ public class OpenroomController {
 	GameEngine gameEngine;
 
 
-	@RequestMapping("/openroom")
+	@RequestMapping("/open")
 	public void index() {
+	}
+	
+	@RequestMapping("/openroom")
+	public void index2() {
 	}
 }

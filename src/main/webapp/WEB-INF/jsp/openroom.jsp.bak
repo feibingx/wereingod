@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>狼人的上帝</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="stylesheet"
+	href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" />
+<script src="http://code.jquery.com/jquery-1.5.min.js"></script>
+<script
+	src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
+
+<!-- Author: William Wang -->
+<!--  www.zhiweiwang.com  -->
+
+<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<style type="text/css">
+</style>
+</head>
+<body>
+
+	<div data-role="page">
+		<div data-role="header" data-position="fixed">
+			<h1>新建房间</h1>
+		</div>
+		<!-- /header -->
+
+		<div data-role="content">
+			<ul data-role="listview" data-dividertheme="d" style="margin-top: 0;">
+				<li><label for="select-choice-1" class="select">游戏人数</label> <input
+					type="range" name="slider" id="select-choice-1" value="8" min="6"
+					max="16" /></li>
+				<li><img src="assets/img/wolf.png"/><label for="select-choice-2">狼人数</label> <input
+					type="range" name="slider" id="select-choice-2" value="2" min="1"
+					max="6" /></li>
+
+				<li><label for="slider">先知</label><select name="slider"
+					id="slider" data-role="slider">
+						<option value="off">关闭</option>
+						<option value="on" selected>开启</option>
+				</select></li>
+				<li><label for="slider">女巫</label><select name="slider"
+					id="slider" data-role="slider">
+						<option value="off">关闭</option>
+						<option value="on" selected>开启</option>
+				</select></li>
+				<li><label for="slider">猎人</label><select name="slider"
+					id="slider" data-role="slider">
+						<option value="off">关闭</option>
+						<option value="on" selected>开启</option>
+				</select></li>
+				<li><label for="slider">守卫</label><select name="slider"
+					id="slider" data-role="slider">
+						<option value="off">关闭</option>
+						<option value="on" selected>开启</option>
+				</select></li>
+				<li><label for="slider">盗贼</label><select name="slider"
+					id="slider" data-role="slider">
+						<option value="off">关闭</option>
+						<option value="on" selected>开启</option>
+				</select></li>
+				<li><label for="slider">丘比特</label><select name="slider"
+					id="slider" data-role="slider">
+						<option value="off">关闭</option>
+						<option value="on" selected>开启</option>
+				</select></li>
+				<li><label for="slider">白痴</label><select name="slider"
+					id="slider" data-role="slider">
+						<option value="off">关闭</option>
+						<option value="on" selected>开启</option>
+				</select></li>
+				<li><label for="slider">普通村民</label><span>人</span></li>
+				<li><input type="submit" value="确认开始" /></li>
+			</ul>
+			<div></div>
+		</div>
+	</div>
+	<!-- /page -->
+
+</body>
+</html>
