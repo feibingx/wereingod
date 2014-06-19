@@ -13,6 +13,6 @@ public interface GameTemplateMapper {
 	public String get(@Param("confname") String confname);
 
 	@Select("select totalplayer, rolename, rolenumber from gametemplate where totalplayer=#{number}")
-	public List<GameTemplate> getTemplate(@Param("number")int number);
+	public List<GameTemplate> getTemplate(@Param("number")String command);
 	
 }

@@ -37,8 +37,13 @@ public class GameCounting implements GameRoleAction {
 	Logger log = LoggerFactory.getLogger(GameCounting.class);
 
 	@Transactional
-	public ArrayList<String> action(Player player, String gstatus,
-			String command) {
+	public ArrayList<String> action(Player player, String gstatus, String command) {
+
+		List<GameTemplate> template = gameTemplateMapper.getTemplate(command);
+		return createNewGame(player, command, template);
+	}
+
+	public ArrayList<String> createNewGame(Player player, String command, List<GameTemplate> template) {
 		int number = Integer.parseInt(command);
 
 		int gameid = 0;
@@ -52,17 +57,15 @@ public class GameCounting implements GameRoleAction {
 		gameRealMapper.newGameOpen(gameid, number, GStatus.准备开始.toString(), 0);
 
 		log.debug("new game opened {}", gameid);
-		
-		List<GameTemplate> template = gameTemplateMapper.getTemplate(number);
 
 		rolesHandler.addGameRoles(gameid, template);
 
-		playerMapper.updatePlayerInGame(player.getUserid(), ""+gameid, PStatus.入房成功.toString());
-		
-		ArrayList<String> returns=new ArrayList<String>();
+		playerMapper.updatePlayerInGame(player.getUserid(), "" + gameid, PStatus.入房成功.toString());
+
+		ArrayList<String> returns = new ArrayList<String>();
 
 		returns.add(command);
-		returns.add(""+gameid);
+		returns.add("" + gameid);
 		returns.add(command);
 		return returns;
 	}

@@ -26,7 +26,7 @@ public interface PlayerMapper {
 	public void updatePlayerNumberRole(@Param("userid")String userid, @Param("rolename")String rolename,@Param("number") String command);
 
 	@Select("select * from player where gameid=#{gameid} and cardnumber=#{number}")
-	public Player queryPlayerNumberInGame(@Param("gameid")int gameid,@Param("number") String command);
+	public Player queryPlayerNumberInGame(@Param("gameid")int gameid,@Param("number") String cardNumber);
 
 	@Update("update player set gameid=#{gameid},rolename=#{rolename} where userid=#{userid}")
 	public void updatePlayerInGame(@Param("userid")String userid,@Param("gameid") String gameid,@Param("rolename") String role);

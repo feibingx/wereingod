@@ -90,5 +90,6 @@ public enum Role {
 
 	// 第一个夜晚的提示文字
 	public abstract String getSpecialRoleAction();
+	
 
 }
