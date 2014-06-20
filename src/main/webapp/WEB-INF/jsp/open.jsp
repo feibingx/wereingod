@@ -1,29 +1,8 @@
 <!DOCTYPE html>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html lang="zh">
-<head>
-<meta charset="utf-8">
-<title>狼人的上帝</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="stylesheet"
-	href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" />
-<script src="http://code.jquery.com/jquery-1.5.min.js"></script>
-<script
-	src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
 
-<!-- Author: William Wang -->
-<!--  www.zhiweiwang.com  -->
-
-<!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-
-<style type="text/css">
-</style>
-</head>
+<%@ include file="header.jsp" %>
 <body>
 
 	<div data-role="page">
@@ -44,7 +23,7 @@
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#nav1">加入房间</a></li>
-					<li><a href="openroom">新建游戏</a></li>
+					<li><a data-ajax="false" href="${pageContext.request.contextPath}/openroom">新建游戏</a></li>
 				</ul>
 			</div>
 			<!-- /navbar -->
@@ -83,7 +62,7 @@
 			<h1>游戏规则</h1>
 		</div>
 		<!-- /header -->
-		<div data-role="content">.</div>
+		<div data-role="content">${pageContext.request.contextPath}/</div>
 		<!-- /content -->
 		<div data-role="footer" data-position="fixed">
 			<h4> </h4>

@@ -68,16 +68,17 @@ public class OpenroomController {
 	}
 
 	@RequestMapping(value = "/openroom", method = RequestMethod.POST)
-	public void openroom(HttpServletRequest request) {
+	public String openroom(HttpServletRequest request) {
 		log.info("openroom");
 		String number = request.getParameter("totalnumber");
 
-		Enumeration<?> names = request.getParameterNames();
-		List<GameTemplate> templates = new ArrayList<GameTemplate>();
-		while (names.hasMoreElements()) {
-			String name = names.nextElement().toString();
+		Enumeration<?> pnames = request.getParameterNames();
+ 		List<GameTemplate> templates = new ArrayList<GameTemplate>();
+ 
+		while (pnames.hasMoreElements()) {
+			String name = pnames.nextElement().toString();
 			String value = request.getParameter(name);
-			log.info(name + ":" + value);
+			log.info("<P>"+name + ":" + value);
 
 			if ("off".equals(value) == false && RoleModelTransfor.mappingRolename(name) != null) {
 				GameTemplate t = new GameTemplate();
@@ -94,8 +95,12 @@ public class OpenroomController {
 
 		// TODO player
 		Player player = (Player) request.getSession().getAttribute(Constants.PLAYER_IN_SESSION);
-		gameCounting.createNewGame(player, number, templates);
+		ArrayList<String> values = gameCounting.createNewGame(player, number, templates);
 
 		log.info("ok");
+		HttpSession session = request.getSession();
+		session.setAttribute(Constants.GAME_NUMBER_IN_SESSION, number);
+		session.setAttribute(Constants.GAME_ID_IN_SESSION, values.get(1)); // No.2 is gameid @see createNewGame
+		return "redirect:card?number="+number;
 	}
 }

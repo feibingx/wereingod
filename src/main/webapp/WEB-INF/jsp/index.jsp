@@ -1,23 +1,7 @@
 <!DOCTYPE html>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html lang="zh">
-<head>
-<meta charset="utf-8">
-<title>测试</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
-
-<!-- Author: William Wang -->
-<!--  www.zhiweiwang.com  --> 
-<!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-
-<style type="text/css">
-</style>
-</head>
+<%@ include file="header.jsp" %>
 <body>
 
 	<div></div>
