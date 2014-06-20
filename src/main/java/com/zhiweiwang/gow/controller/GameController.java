@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.zhiweiwang.gow.engine.GameCounting;
 import com.zhiweiwang.gow.engine.GameEngine;
@@ -31,8 +32,8 @@ import com.zhiweiwang.gow.model.Role;
 import com.zhiweiwang.gow.utils.Constants;
 import com.zhiweiwang.gow.utils.RoleModelTransfor;
 
-@Controller
-public class OpenroomController {
+@Controller 
+public class GameController {
 
 	@Autowired
 	PlayerMapper playerMapper;
@@ -44,58 +45,25 @@ public class OpenroomController {
 
 	@Autowired
 	GameCounting gameCounting;
-
-	@Autowired
-	PlayerMapper playMapper;
-
-	@RequestMapping("/open")
-	public void index(String userid, HttpSession session) {
-		if (userid == null)
-			return;
-		Player player = playMapper.get(userid);
-		if (player == null) {
-			log.debug("new player: {}", userid);
-			playMapper.newPlayer(userid, Role.空闲.toString(), PStatus.空闲.toString());
-			player = new Player();
-			player.setRolename(Role.空闲.toString());
-			player.setPstatus(PStatus.空闲.toString());
-		}
-		session.setAttribute(Constants.PLAYER_IN_SESSION, player);
-	}
-
-	@RequestMapping("/openroom")
-	public void getopenroom() {
-	}
-
-	@RequestMapping(value = "/openroom", method = RequestMethod.POST)
-	public void openroom(HttpServletRequest request) {
-		log.info("openroom");
-		String number = request.getParameter("totalnumber");
-
-		Enumeration<?> names = request.getParameterNames();
-		List<GameTemplate> templates = new ArrayList<GameTemplate>();
+ 
+  	@RequestMapping(value="/game",method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String, String> game(HttpServletRequest request) {
+		Map<String, String> map = new HashMap<String, String>();
+		
+		Enumeration<?> names = request.getParameterNames(); 
 		while (names.hasMoreElements()) {
 			String name = names.nextElement().toString();
 			String value = request.getParameter(name);
 			log.info(name + ":" + value);
-
-			if ("off".equals(value) == false && RoleModelTransfor.mappingRolename(name) != null) {
-				GameTemplate t = new GameTemplate();
-				t.setRolename(RoleModelTransfor.mappingRolename(name).toString());
-				t.setTotalplayer(Integer.parseInt(number));
-				if ("on".equals(value) == true) {
-					t.setRolenumber(1);
-				} else {
-					t.setRolenumber(Integer.parseInt(value));
-				}
-				templates.add(t);
-			}
+			
+			map.put(name,value);
 		}
-
-		// TODO player
-		Player player = (Player) request.getSession().getAttribute(Constants.PLAYER_IN_SESSION);
-		gameCounting.createNewGame(player, number, templates);
-
-		log.info("ok");
+		
+		return map;
 	}
+	
+	@RequestMapping("game")
+	public void getGame(){}
+ 
 }
