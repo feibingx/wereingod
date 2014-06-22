@@ -61,7 +61,7 @@ public class GameCounting implements GameRoleAction {
 		rolesHandler.addGameRoles(gameid, template);
 
 		playerMapper.updatePlayerInGame(player.getUserid(), "" + gameid, PStatus.入房成功.toString());
-
+		player.setGameid(gameid);
 		ArrayList<String> returns = new ArrayList<String>();
 
 		returns.add(command);

@@ -27,6 +27,7 @@ import com.zhiweiwang.gow.engine.GameCounting;
 import com.zhiweiwang.gow.engine.GameEngine;
 import com.zhiweiwang.gow.engine.GameNumber;
 import com.zhiweiwang.gow.engine.assemble.GameRoleAssembleHandler;
+import com.zhiweiwang.gow.exception.GameStatusException;
 import com.zhiweiwang.gow.mapper.PlayerMapper;
 import com.zhiweiwang.gow.model.GameTemplate;
 import com.zhiweiwang.gow.model.PStatus;
@@ -36,6 +37,7 @@ import com.zhiweiwang.gow.utils.Constants;
 import com.zhiweiwang.gow.utils.RoleModelTransfor;
 
 @Controller 
+@SessionAttributes(Constants.PLAYER_IN_SESSION)
 public class CardNumberController {
 
  
@@ -46,8 +48,7 @@ public class CardNumberController {
 	@Autowired
 	GameNumber gameNumber;
  
-	@RequestMapping("/card") 
-	
+	@RequestMapping("/card")  
 	public ModelAndView card(HttpSession session){
 		ModelAndView mav = new ModelAndView("card");
 		Integer number =  Integer.parseInt(session.getAttribute(Constants.GAME_NUMBER_IN_SESSION).toString());
@@ -62,19 +63,16 @@ public class CardNumberController {
 	
   	@RequestMapping(value="/card",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String, String> game(HttpServletRequest request) {
-		Map<String, String> map = new HashMap<String, String>();
-		
-		Enumeration<?> names = request.getParameterNames(); 
-		while (names.hasMoreElements()) {
-			String name = names.nextElement().toString();
-			String value = request.getParameter(name);
-			log.info(name + ":" + value);
-			
-			map.put(name,value);
+	public ModelAndView game(String cardnumber, String nickname, @ModelAttribute(Constants.PLAYER_IN_SESSION)Player player) { //HttpServletRequest request) {
+ 
+
+  		try {
+			ArrayList<String> params = gameNumber.action(player, null, cardnumber); 
+		} catch (GameStatusException e) { 
+			e.getFeedbackText();
 		}
-		
-		return map;
+  		 
+		return new ModelAndView("redirect:/game");
 	}
 	
  

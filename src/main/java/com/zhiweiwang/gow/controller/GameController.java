@@ -15,11 +15,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.zhiweiwang.gow.engine.GameCounting;
 import com.zhiweiwang.gow.engine.GameEngine;
@@ -33,6 +35,7 @@ import com.zhiweiwang.gow.utils.Constants;
 import com.zhiweiwang.gow.utils.RoleModelTransfor;
 
 @Controller 
+@SessionAttributes(Constants.PLAYER_IN_SESSION)
 public class GameController {
 
 	@Autowired
@@ -63,7 +66,15 @@ public class GameController {
 		return map;
 	}
 	
-	@RequestMapping("game")
-	public void getGame(){}
+	@RequestMapping("/game")
+	public ModelAndView getGame(@ModelAttribute(Constants.PLAYER_IN_SESSION)Player player){
+		log.debug("in game {}" , player);
+		ModelAndView mav = new ModelAndView("game");
+		
+		mav.addObject("player",player);
+		
+		return mav;
+
+	}
  
 }

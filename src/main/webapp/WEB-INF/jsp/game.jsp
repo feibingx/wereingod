@@ -10,13 +10,12 @@
 				<label class="select ui-select" for="shipping">Shipping method:</label>
 				<div class="ui-select">
 					<div data-corners="true" data-shadow="true" data-wrapperels="span"   data-theme="a" class="ui-btn ui-shadow ui-btn-corner-all  ui-btn-up-a">
-						<span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text"><span>Standard: 7 day</span></span>
- 						</span> <select id="shipping" name="shipping">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-						</select>
+						<span class="ui-btn-inner ui-btn-corner-all">
+							<span class="ui-btn-text">
+								<span>${player.rolename}</span>
+								<span>${player.cardnumber}</span>
+							</span>
+						</span>
 					</div>
 				</div>
 			</div>

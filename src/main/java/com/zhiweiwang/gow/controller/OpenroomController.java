@@ -99,6 +99,7 @@ public class OpenroomController {
 
 		log.info("ok");
 		HttpSession session = request.getSession();
+		session.setAttribute(Constants.PLAYER_IN_SESSION, player);
 		session.setAttribute(Constants.GAME_NUMBER_IN_SESSION, number);
 		session.setAttribute(Constants.GAME_ID_IN_SESSION, values.get(1)); // No.2 is gameid @see createNewGame
 		return "redirect:card?number="+number;

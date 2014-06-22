@@ -72,5 +72,10 @@ public class Player {
 	public void setPstatus(String pstatus) {
 		this.pstatus = pstatus;
 	}
+	
+	@Override
+	public String toString(){
+		return "[userid]"+userid+" [rolename]"+rolename;
+	}
 
 }
