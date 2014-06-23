@@ -19,7 +19,7 @@ import com.zhiweiwang.gow.model.PStatus;
 import com.zhiweiwang.gow.model.Player;
 import com.zhiweiwang.gow.model.Role;
 
-@Component("GameCounting")
+@Component 
 public class GameCounting implements GameRoleAction {
 
 	@Autowired

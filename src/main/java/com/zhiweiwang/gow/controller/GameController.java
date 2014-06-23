@@ -42,12 +42,7 @@ public class GameController {
 	PlayerMapper playerMapper;
 
 	Logger log = LoggerFactory.getLogger(this.getClass());
-
-	@Autowired
-	GameEngine gameEngine;
-
-	@Autowired
-	GameCounting gameCounting;
+ 
  
   	@RequestMapping(value="/game",method=RequestMethod.POST)
 	@ResponseBody

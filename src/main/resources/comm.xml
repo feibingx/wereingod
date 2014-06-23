@@ -9,6 +9,7 @@
 	http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd
 	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
+
 	<context:component-scan base-package="com.zhiweiwang.gow" />
 	<context:property-placeholder location="classpath:jdbc.properties" />
 	<mvc:default-servlet-handler />
@@ -16,41 +17,18 @@
 
 	<mvc:resources mapping="/assets/**" location="/assets/" />
 	<mvc:resources mapping="/upload/**" location="/upload/" />
-	<!-- <tx:annotation-driven/> 
-
+	
+<!--<tx:annotation-driven transaction-manager="txnManager" proxy-target-class="true"/> 
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/*" />
 
 			<bean
 				class="com.zhiweiwang.gow.interceptor.UserAuthenticationInterceptor">
-				<property name="inFilters">
-					<list>
-						<value>fillin</value>
-						<value>result</value>
-						<value>print</value>
-					</list>
-				</property>
-				<property name="inAdminFilters">
-					<list>
-						<value>admin</value>
-						<value>detail</value>
-						<value>deal</value>
-						<value>counting</value>
-						<value>pass</value>
-						<value>reject</value>
-						<value>search</value>
-						<value>superadmin</value>
-						<value>supereditor</value>
-						<value>supertable</value>
-						<value>export</value>
-					</list>
-				</property>
-				<property name="sysconfMapper" ref="sysconfMapper" />
+ 
 			</bean>
 		</mvc:interceptor>
-	</mvc:interceptors>
--->
+	</mvc:interceptors>   -->
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
@@ -90,5 +68,4 @@
 	</bean>
 
 	<import resource="db.xml"/>
-
 </beans>
