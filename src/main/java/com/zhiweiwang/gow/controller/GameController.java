@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -64,10 +65,8 @@ public class GameController {
 	@RequestMapping("/game")
 	public ModelAndView getGame(@ModelAttribute(Constants.PLAYER_IN_SESSION)Player player){
 		log.debug("in game {}" , player);
-		ModelAndView mav = new ModelAndView("game");
-		
-		mav.addObject("player",player);
-		
+		ModelAndView mav = new ModelAndView("game"); 
+		mav.addObject("player",player); 
 		return mav;
 
 	}

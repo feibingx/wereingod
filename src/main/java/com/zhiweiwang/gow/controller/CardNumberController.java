@@ -62,7 +62,7 @@ public class CardNumberController {
 	}
 	
   	@RequestMapping(value="/card",method=RequestMethod.POST)
-	@ResponseBody
+	//@ResponseBody
 	public ModelAndView game(String cardnumber, String nickname, @ModelAttribute(Constants.PLAYER_IN_SESSION)Player player) { //HttpServletRequest request) {
  
 

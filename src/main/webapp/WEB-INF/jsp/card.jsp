@@ -10,7 +10,7 @@
 			<span><a href="open" style="float: left;"> back</a></span>
 			<h1 class="ui-title" tabindex="0" role="heading" aria-level="1">进入游戏</h1>
 		</div>
-		<form action="/godinwere/card" method="POST" >
+		<form action="/godinwere/card" method="POST"  data-ajax="false">
 			<div data-role="content" class="ui-content" role="main">
 				<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">你的房间号码是 ${gameid}。请伙伴们输入该号码进入房间游戏。</div>
 				<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">

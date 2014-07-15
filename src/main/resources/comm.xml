@@ -18,17 +18,17 @@
 	<mvc:resources mapping="/assets/**" location="/assets/" />
 	<mvc:resources mapping="/upload/**" location="/upload/" />
 	
-<!--<tx:annotation-driven transaction-manager="txnManager" proxy-target-class="true"/> 
+<!--<tx:annotation-driven transaction-manager="txnManager" proxy-target-class="true"/> -->
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/*" />
 
 			<bean
-				class="com.zhiweiwang.gow.interceptor.UserAuthenticationInterceptor">
+				class="com.zhiweiwang.gow.interceptor.UserInteceptor">
  
 			</bean>
 		</mvc:interceptor>
-	</mvc:interceptors>   -->
+	</mvc:interceptors>   
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">

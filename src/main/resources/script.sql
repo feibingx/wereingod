@@ -37,7 +37,7 @@ lastchanged timestamp
 );
 
 create table player(
-userid varchar(32) not null primary key,
+userid varchar(64) not null primary key,
 gameid int,
 rolename varchar(12),
 cardnumber varchar(2),
@@ -61,7 +61,7 @@ feedback text
 
 create table vote(
 ID int not null auto_increment primary key,
-userid varchar(32) not null,
+userid varchar(64) not null,
 gameid int,
 daycount int,
 votenumber int
@@ -69,7 +69,7 @@ votenumber int
 
 create table werewolfkill(
 ID int not null auto_increment primary key,
-userid varchar(32) not null,
+userid varchar(64) not null,
 gameid int,
 daycount int,
 votenumber int
