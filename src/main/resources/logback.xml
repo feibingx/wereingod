@@ -3,7 +3,7 @@
 
 	<property name="USER_HOME" value="/home/williamw/log" />
 	<property name="LOG_FILE_NAME" value="godinwere" />
-	<property name="LOG_FILE_NAME_MSG" value="apply" />
+	<property name="LOG_FILE_NAME_MSG" value="godinwere" />
 	<property name="LEVEL" value="debug" />
 	<property name="logFileNamePattern" value="${LOG_FILE_NAME}_%d{yyyy-MM-dd}" />
 	<property name="logFileNamePattern2" value="${LOG_FILE_NAME}_%d{yyyy-MM-dd}_%i" />
@@ -45,6 +45,7 @@
 
 	<root level="${LEVEL}">
 		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="ROLLING" />
 	</root>
 
 </configuration>
